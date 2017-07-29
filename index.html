@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>PHyTeR</title>
+  <link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
+  <link href="assets/css/bottom-tab.css" type="text/css" rel="stylesheet" />
+  <link href="assets/css/jquery-ui.css" type="text/css" rel="stylesheet" />
+  <link href="assets/css/jquery-ui.theme.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <h3>PHyTeR</h3>
+        </div>               
+      </nav>
+    </div>
+  </div>
+  <div class="working-area" >
+    <div id="intro_screen">
+      <div class="col-md-4 panels">
+        <div class="panel panel-primary intro_screen">
+          <div class="panel-heading">
+            <h3 class="panel-title"> Introduction to Troubleshooting</h3>
+          </div>
+          <div class="panel-body intro_screen_panels"> Click here to what is troubleshooting? where is it used? etc </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 panels">
+        <div class="panel panel-primary intro_screen" >
+          <div class="panel-heading">
+            <h3 class="panel-title">Introduction to PHyTeR</h3>
+          </div>
+          <div class="panel-body intro_screen_panels">PHyTeR is a tool designed to help you learn troubleshooting in a structured way. Click here to know more about the principles behind PHyTeR. </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 panels">
+        <div class="panel panel-primary intro_screen" id="show_problem_choice_screen_button">
+          <div class="panel-heading">
+            <h3 class="panel-title">Let us Troubleshoot!</h3>
+          </div>
+          <div class="panel-body intro_screen_panels">
+            <span> Click here to explore scenarios about computer networks and learn troubleshooting. </span>
+          </div>
+        </div>        
+      </div>
+    </div>
+
+    <!-- Problem choice screen -->
+    <div id="problem_choice_screen">
+      <h4> Select any problem</h4>
+      <div class="col-md-4 panels">
+        <div class="panel panel-default problem_choice_screen" id="show_problem1">
+          <div class="panel-body">
+            <span> Problem 1 </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 panels">
+        <div class="panel panel-default problem_choice_screen" id="show_problem2">
+          <div class="panel-body">
+            <span> Problem 2 </span>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 panels">
+        <div class="panel panel-default problem_choice_screen" id="show_problem3">
+          <div class="panel-body">
+            <div> Problem 3 </div>
+          </div>
+        </div>        
+      </div>      
+    </div>
+
+    <div id="problem1_screen" class="individual_problem_screen">
+      <p> Problem 1: Meenu is trying to connect to www.et.co.in from PC0. But she is not able to access. Can you resolve her problem? </p> <br>
+      <div style="padding-left: 15%"> <img src="assets/images/problem1_topology.png" height="300em" width="450em" /> </div>
+      <button id="problem1_solve_button" class="btn btn-primary" style="float: right;"> Solve</button>
+    </div>
+
+    <div id="solution_choice_screen" class="solution_choice_screen">
+      <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;"/>
+      <p> I am is Surabhi. I will help you in interaacting with the tool. I will be appearing on every screen to describe what you can do in that step. If you want to interact with me in between, you can click <img id="ped_agent" src="assets/media/surabhi.PNG" height="20" width="18"/> in the bottom tab. </p>
+      <p>At this juncture, you have 3 choices: </p> <br>
+      <fieldset>
+        <input type="radio" name="radio_solution_choice" id="radio_explore_network" value="explore_network" />
+        <label for="radio_explore_network">Explore the problem in the network simulator</label> <br>
+
+        <input type="radio" name="radio_solution_choice" id="radio_gen_hyp" value="gen_hyp" />
+        <label for="radio_gen_hyp">Generate hypotheses</label> <br>
+        
+        <input type="radio" name="radio_solution_choice" id="radio_explore_puzzle" value="explore_puzzle" />
+        <label for="radio_explore_puzzle">Explore the problem by solving a puzzle</label>
+      </fieldset>
+      <button id="solution_choice_button" class="btn btn-primary" style="float: right;">Go!</button>
+    </div>
+
+
+    <!-- Tab screen -->
+    <div class="tabbable tabs-bottom" id="tabs_screen">
+        <div class="tab-content">
+          <div class="tab-pane" id="problem_understanding"> 
+            <p>Jumbled statements activity</p>
+          </div>
+          <!-- About tab ends -->
+          <div class="tab-pane" id="gen_hyp">   
+          <div class="row" >             
+                <div class="col-md-6">
+                  <!-- A panel for accepting and listing hypotheses -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">
+                        
+                        <div class="btn-toolbar">
+                          <div class="btn-group add-hypothesis-button-group">
+                            <a href="#" class="btn btn-primary add-hypothesis-button" id="add-hypothesis-button"><span class="glyphicon glyphicon-plus"></span> </a>  <p style="padding-left: 3.5em;">Add Hypothesis</p>
+                          </div> 
+                        </div>
+                      </h3>
+              
+                    </div>
+                    <div class="panel-body">
+                      <div id="add-hypotheses-group">
+                        <ul id="sortable1" class="connectedSortable ui-sortable">
+                        
+                        </ul>          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">
+                        Prioritize your hypotheses
+                      </h3>
+                    </div>
+                    <div class="panel-body">
+                      <div id="prioritize-hypotheses-group">
+                        <ul id="sortable2" class="connectedSortable">
+                          
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel-footer" id="justification_box">
+                    </div>
+                  </div>
+                </div>
+              </div>  
+          </div> 
+          <!-- Generate Hypotheses tab ends -->
+          
+          <!-- Plan a test tab begins -->
+          <div class="tab-pane" id="plan_test"> 
+            <h4>Selected Hypothesis</h4>
+            <blockquote>
+              <p id="selected_hyp"></p>
+            </blockquote>
+            <label for="plan_option"> How do you plan to test this hypothesis? </label> 
+            <div class="row" id="plan_option_radio">
+              <div class="col-md-4 radio">
+                <label>
+                  <input type="radio" name="plan_option" id="plan_option_1" value="option1" >
+                  Execute a command
+                </label>
+              </div>
+              <div class="col-md-4 radio">
+                <label class="hang_me_down">
+                  <input type="radio" name="plan_option" id="plan_option_2" value="option2">
+                  Change a configuration setting
+                </label>
+              </div>
+              <div class="col-md-4 radio">
+                <label class="hang_me_down">
+                  <input type="radio" name="plan_option" id="plan_option_3" value="option3">
+                  Something else
+                </label>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-md-6" id="enter_plan">
+                
+              </div>
+              <div class="col-md-6" id="enter_prediction">
+                
+              </div>
+            </div>
+
+          </div>  
+
+          <!-- Services tab ends -->
+
+          <div class="tab-pane" id="result_interpret"> 
+            <h4>Result Interpretation</h4>
+            <blockquote id="hyp_interpretation">
+              
+            </blockquote>
+
+            <div class="row" class="push-me-right" >
+              <div class="col-md-6">
+                <label id="actual_result_label" for="actual_result_tbox">Enter the result obtained in the test</label>
+                <textarea id="actual_result_tbox" class="form-control"></textarea>
+              </div>
+              <div class="col-md-6" id="compare_results_div">
+              
+              </div>
+            </div>
+            <div class="row" id="interpretation_option_div">
+              
+            </div>
+          
+          </div>
+          <!-- Contact tab ends -->
+        </div>
+        <!-- tab content -->
+        <ul id="nav-tab-id" class="nav nav-tabs">
+          <li><a href="#problem_understanding" data-toggle="tab" id="problem_understanding_tab">Problem Space</a></li>
+          <li><a href="#gen_hyp" data-toggle="tab" id="gen_hyp_tab">Hypotheses</a></li>          
+          <li><a href="#plan_test" data-toggle="tab" id="plan_test_tab">Test</a></li>
+          <li><a href="#result_interpret" data-toggle="tab" id="result_interpret_tab">Results</a></li>
+
+          <div class="btn-group widgets"> 
+            <li class="btn btn-default" id="widget-button2"><img id="history-icon" src="assets/media/history.PNG" height="32" width="27"/></li> 
+            <li class="btn btn-default" id="widget-button1"><img id="ped_agent" src="assets/media/surabhi.PNG" height="32" width="27"/></li>
+          </div>
+          
+        </ul>
+        
+      </div>
+      <!-- /tabs -->
+
+  </div>
+
+  <!-- All the modals go here -->
+
+    <!-- A modal to show instructions about exploring a network initially -->
+    <div class="modal" id="modal_initial_instruct">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+            <h4 class="modal-title">Exploring the problem</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Open the simulator. You can explore anything you want in the simulator. But remember that you cannot change anything in the simulator.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-initial-instruct-close-button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to accept a new hypothesis -->
+    <div class="modal" id="modal-get-hypothesis">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+            <h4 class="modal-title">Generate Hypothesis</h4>
+          </div>
+          <div class="modal-body">
+            <label for="hypothesis-tbox">
+              Enter hypothesis: 
+            </label>
+            <textarea class="form-control" name="get-hypothesis" id="hypothesis-tbox" value="Hypothesis" placeholder="Hypothesis"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-get-hypothesis-close-button">Close</button>
+            <button type="button" class="btn btn-primary" id="modal-get-hypothesis-save-button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to get justification for the selection of hypothesis, after the hypothesis has been dropped to "Prioritize your Hypothesis" tab-->
+    <div class="modal" id="modal-get-justification">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+            <h4 class="modal-title">Enter Justification</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <label for="hypothesis-tbox">
+              Enter the justification for your selection of the hypothesis:
+              (Why do you want to test that hypothesis now?) 
+            </label> 
+            <textarea class="form-control" name="get-justification" id="justification-tbox" placeholder="Justification"></textarea> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-get-justification-close-button">Close</button>
+            <button type="button" class="btn btn-primary" id="modal-get-justification-save-button">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when blur event happens the first time in prediction box -->
+    <div class="modal" id="modal_after_prediction">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+            <h4 class="modal-title">Moving on...</h4>
+          </div>
+          <div class="modal-body">
+          <img src="assets/media/surabhi.png" height="100" width="90">
+            <p> Have you completed entering all the details?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal_after_prediction_close_button">No, let me edit</button>
+            <button type="button" class="btn btn-primary" id="modal_after_prediction_save_button">Yes, take me to next step</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when hypothesis tab is displayed for the first time. It has the description about hypothesis generation -->
+    <div class="modal" id="modal-hyp-gen-initial">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Generate Hypothesis Instructions</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-hyp-gen-initial-close-button">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-test-initial">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Test screen </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-test-initial-close-button">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-result-initial">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Test screen </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-result-initial-close-button">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+<link href="assets/css/bootswatch/flatly/bootstrap.min.css" type="text/css" rel="stylesheet" /> 
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- The Moment.js library -->
+<script src="node_modules/moment/moment.js"></script>
+<!-- Including our own JavaScript file -->
+<!-- <script src="assets/js/ped.js"></script> -->
+<script src="assets/js/script.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/uuid-random.min.js"></script>
+</body>
+</html>

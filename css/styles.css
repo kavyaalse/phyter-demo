@@ -1,0 +1,132 @@
+.add-hypothesis-button {
+	float: right;
+	padding: 5px 5px;
+	font-size: smaller;
+}
+
+.add-hypothesis-button-group {
+	float: right;
+	width: 100%;
+}
+
+.navbar-header h3 {
+	color: #ffffff;
+	margin-left: 10px;
+}
+
+.working-area {
+	padding-top:65px;/*
+	padding-bottom:65px;*/
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.glyphicon glyphicon-remove {
+	float: right;
+}
+
+#sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 100%;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+}
+
+#sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 95%;
+}
+
+label {
+	font-variant: normal;
+	color: teal;
+}
+
+/*To keep the tabs at the bottom of the screen*/
+.tab-content {
+	height: 76vh;
+}
+
+.ped-agent {
+	height: 50px;
+	width: 40px;
+}
+
+/*To make the radio buttons in 'test' tab horizontally aligned*/
+.hang_me_down {
+	margin-top: 16px;
+}
+
+.push-me-right {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+/*Hide every other screen apart from intro screen in when document is loaded*/
+#problem_choice_screen {
+	display: none;
+}
+
+#problem1_screen {
+	display: none;
+}
+
+#tabs_screen {
+	display: none;
+}
+
+#solution_choice_screen {
+	display: none;
+}
+
+.intro_screen {
+	height: 12em;
+}
+
+.panels {
+	padding-top: 15%;
+}
+
+.intro_screen_panels {
+	color: #2c3e50;
+}
+
+.intro_screen_panels :hover {
+	color: #18bc9c;
+}
+
+.problem_choice_screen {
+	/*height: 10em;*/
+}
+
+.problem_choice_screen :hover {
+	background-color: #d0ece7;
+}
+
+.individual_problem_screen, .solution_choice_screen {
+	padding-top: 5%
+}
+
+.widgets {
+  float: right;
+}
+
+#widget-button1 {
+  background-color:white;
+  padding: 2px 2px;
+  border-width: 1px;
+  border-color: #ddd;
+}
+
+#widget-button2 {
+  background-color:white;
+  padding: 2px 2px;
+  border-width: 1px;
+  border-color: #ddd;
+}
