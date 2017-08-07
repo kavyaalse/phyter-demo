@@ -105,11 +105,13 @@
 
     <!-- Tab screen -->
     <div class="tabbable tabs-bottom" id="tabs_screen">
-        <div class="tab-content">
+        <div class="tab-content" style="overflow-y:scroll;">
           <div class="tab-pane" id="problem_understanding"> 
             <p>Jumbled statements activity</p>
           </div>
-          <!-- About tab ends -->
+          <!-- Problem Space tab ends -->
+
+          <!-- Generate Hypothesis tab-->
           <div class="tab-pane" id="gen_hyp">   
           <div class="row" >             
                 <div class="col-md-6">
@@ -129,7 +131,7 @@
                     <div class="panel-body">
                       <div id="add-hypotheses-group">
                         <ul id="sortable1" class="connectedSortable ui-sortable">
-                        
+    
                         </ul>          
                       </div>
                     </div>
@@ -154,6 +156,7 @@
                     </div>
                   </div>
                 </div>
+                <button class="btn btn-primary" id="hyp-gen-next-button" style="float: right; margin-right: 25px;" > Next </button>
               </div>  
           </div> 
           <!-- Generate Hypotheses tab ends -->
@@ -187,20 +190,17 @@
             </div>
             <br/>
             <div class="row">
-              <div class="col-md-6" id="enter_plan">
-                
+              <div class="col-md-6" id="enter_plan">                
               </div>
-              <div class="col-md-6" id="enter_prediction">
-                
+              <div class="col-md-6" id="enter_prediction">                
               </div>
             </div>
-
+            <button class="btn btn-primary" id="plan-test-next-button" style="float: right; margin-right: 25px;" > Next </button>
           </div>  
+          <!-- Test tab ends -->
 
-          <!-- Services tab ends -->
-
-          <div class="tab-pane" id="result_interpret"> 
-            <h4>Result Interpretation</h4>
+          <div class="tab-pane" id="result"> 
+            <h4>Results</h4>
             <blockquote id="hyp_interpretation">
               
             </blockquote>
@@ -214,32 +214,104 @@
               
               </div>
             </div>
-            <div class="row" id="interpretation_option_div">
-              
+            <div class="row" id="interpretation_option_div">              
             </div>
-          
+            <button class="btn btn-primary" id="result-next-button" style="float: right; margin-right: 25px;" > Next </button>     
           </div>
-          <!-- Contact tab ends -->
+          <!-- Results tab ends -->
+
+          <div class="tab-pane" id="interpret"> 
+            <h4>Result Interpretation</h4>
+            <!-- <blockquote id="interpretation_quote"> </blockquote> -->
+            <p>In result Interpretation, even when you don't have found the actual cause of problem, you can ask meaningful questions to get more from the result. The answers might help you in your next steps. <br>
+            At this juncture, you have 2 choices:</p>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"> Seperate Devices </h3>
+                  </div>
+                  <div class="panel-body">
+                    <h5 style="color: #45B39D" >Divide the network vertically, in terms of devices and try to answer:</h5>
+
+                    <p>Can you conclusively say that a perticular device has problem?</p>
+                    <input type="radio" name="interpret_q1_radio" value="Yes"> Yes
+                    <input type="radio" name="interpret_q1_radio" value="No"> No 
+                    <br>
+                    <div id="interpret_q1_feedback"> </div>
+                    <br>
+                    <p>Can you conclusively say that a perticular device has no problem?</p>
+                    <input type="radio" name="interpret_q2_radio" value="Yes"> Yes
+                    <input type="radio" name="interpret_q2_radio" value="No"> No 
+                    <br>
+                    <div id="interpret_q2_feedback"> </div>
+
+                  </div>
+                </div>         
+              </div>
+              <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"> Seperate Network Layers </h3>
+                  </div>
+                  <div class="panel-body">
+                    <h5 style="color: #45B39D">Divide the network horizontally, in terms of network layers and try to answer: </h5>
+                    <p>Can you conclusively say network is functioning at some network layer? </p>
+                    <input type="radio" name="interpret_q3_radio" value="Yes"> Yes
+                    <input type="radio" name="interpret_q3_radio" value="No"> No 
+                    <br>
+                    <div id="interpret_q3_feedback"> </div>
+                    <br>
+                    <p>Can you conclusively say that network is not functioning at some network layer?</p>
+                    <input type="radio" name="interpret_q4_radio" value="Yes"> Yes
+                    <input type="radio" name="interpret_q4_radio" value="No"> No
+                    <br>
+                    <div id="interpret_q4_feedback"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <label for="interpret_option_label"> Based on the above observation, what do you want to do? </label>
+
+            <div class="row">              
+              <div class="col-md-6">
+                <h5 style="color: #45B39D">Steps related to this hypothesis: </h5>
+                <input type="radio" name="interpret_option" value="diff_test"> Perform a different test for this hypothesis <br>
+                <br>
+                <h5 style="color: #45B39D">Steps related to Problem Solving:</h5>
+                <input type="radio" name="interpret_option" value="test_hyp"> Test another hypothesis <br>            
+                <input type="radio" name="interpret_option" value="generate_hyp"> Generate a new hypothesis               
+              </div>
+              <div class="col-md-6">
+                <h5 style="color: #45B39D">Steps related to Problem understanding:</h5>
+                <input type="radio" name="interpret_option" value="read"> Read about something <br>
+                <input type="radio" name="interpret_option" value="explore"> Explore the problem by doing more activities               
+              </div>
+            </div>
+            <button class="btn btn-primary" id="interpret-next-button" style="float: right; margin-right: 25px;" > Go!</button>
+          </div>
+          <!-- Interpret tab ends-->
         </div>
+
         <!-- tab content -->
         <ul id="nav-tab-id" class="nav nav-tabs">
           <li><a href="#problem_understanding" data-toggle="tab" id="problem_understanding_tab">Problem Space</a></li>
           <li><a href="#gen_hyp" data-toggle="tab" id="gen_hyp_tab">Hypotheses</a></li>          
           <li><a href="#plan_test" data-toggle="tab" id="plan_test_tab">Test</a></li>
-          <li><a href="#result_interpret" data-toggle="tab" id="result_interpret_tab">Results</a></li>
+          <li><a href="#result" data-toggle="tab" id="result_tab">Note Result</a></li>
+          <li><a href="#interpret" data-toggle="tab" id="interpret_tab">Interpret Result</a></li>
 
           <div class="btn-group widgets"> 
-            <li class="btn btn-default" id="widget-button2"><img id="history-icon" src="assets/media/history.PNG" height="32" width="27"/></li> 
-            <li class="btn btn-default" id="widget-button1"><img id="ped_agent" src="assets/media/surabhi.PNG" height="32" width="27"/></li>
-          </div>
-          
+            <li class="btn btn-default widget-buttons" id="history-widget"><img id="history-icon" src="assets/media/history.PNG" height="32" width="27"/></li> 
+            <li class="btn btn-default widget-buttons" id="avatar-widget"><img id="ped_agent" src="assets/media/surabhi.PNG" height="32" width="27"/></li>
+          </div> 
         </ul>
         
       </div>
       <!-- /tabs -->
-
   </div>
-
   <!-- All the modals go here -->
 
     <!-- A modal to show instructions about exploring a network initially -->
@@ -307,7 +379,7 @@
       </div>
     </div>
 
-    <!-- A modal to be shown when blur event happens the first time in prediction box -->
+    <!-- A modal from plan test tab - which asks students to open packet tracer and perform the test -->
     <div class="modal" id="modal_after_prediction">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -317,11 +389,11 @@
           </div>
           <div class="modal-body">
           <img src="assets/media/surabhi.png" height="100" width="90">
-            <p> Have you completed entering all the details?</p>
+            <p> Now go to packet tracer and do perform the tests. <br>
+            Come back and click on "Take me to next step" </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal_after_prediction_close_button">No, let me edit</button>
-            <button type="button" class="btn btn-primary" id="modal_after_prediction_save_button">Yes, take me to next step</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_after_prediction_next_button">Yes, take me to next step</button>
           </div>
         </div>
       </div>
@@ -345,6 +417,46 @@
       </div>
     </div>
 
+    <!-- A modal to be shown when avatar is clicked from hypothesis tab-->
+    <div class="modal" id="modal-hyp-gen-after">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Hi, How can I help you</p>
+            <input type="radio" name="hyp-gen-after" value="instructions"> Show me instructions again <br>
+            <input type="radio" name="hyp-gen-after" value="hints"> Give me hints 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-hyp-gen-after-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when hints are asked from avatar-->
+    <div class="modal" id="modal-hyp-gen-hints">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p>Hypothesis Generation Hints go here...</p>
+            <div ></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-hyp-gen-hints-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when Test tab is clicked for first time and also when avatar is called from test tab and asked for instructions about performing the step -->
     <div class="modal" id="modal-test-initial">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -362,6 +474,45 @@
       </div>
     </div>
 
+    <!-- A modal to be shown when avatar will be called from test tab-->
+    <div class="modal" id="modal-test-after">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Hi, How can I help you</p>
+            <input type="radio" name="test-after" value="instructions"> Show me instructions again <br>
+            <input type="radio" name="test-after" value="hints"> Give me hints             
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-test-after-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when hints are required from test tab -->
+    <div class="modal" id="modal-test-hints">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Hints for testing go here...</p>             
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-test-hints-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A modal to be shown when result interpretation is shown for the first time and when avatar is called for asking instructions about doing this step -->
     <div class="modal" id="modal-result-initial">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -370,7 +521,7 @@
           </div>
           <div class="modal-body">
             <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
-            <p> Test screen </p>
+            <p> Result interpret screen </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-result-initial-close-button">Okay</button>
@@ -378,6 +529,64 @@
         </div>
       </div>
     </div>
+
+    <!-- A modal to be shown when avatar is called from result interpret tab-->
+    <div class="modal" id="modal-result-after">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Hints for result interpretation go here </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-result-after-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--A modal to be shown if hints are asked from result interpretation -->
+    <div class="modal" id="modal-result-hints">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> Hints about interpreting results go here</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-result-after-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--A modal to be shown when history is clicked -->
+    <div class="modal" id="modal-history">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About this step...</h4>
+          </div>
+          <div class="modal-body">
+            <img id="ped_agent" src="assets/media/surabhi.PNG" height="100" width="90" style="float: left;">
+            <p> History of troubleshooting </p>
+            <div id="history-panels">
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-result-after-close-button">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+
 
 </div>
 <link href="assets/css/bootswatch/flatly/bootstrap.min.css" type="text/css" rel="stylesheet" /> 
